@@ -17,3 +17,6 @@ A simulação do produto para dispositivos móveis foi feita considerando: Iphon
 
 # Totalizador de compra
 Como o bootstrap requer o uso da biblioteca jQuery, a mesma foi utilizada para gerenciar exibir/ocultar o totalizador.
+
+# Diretório
+Os diretórios do projeto estão na pasta raíz. A mesma tem também um diretório chamado Projeto: este contém todos os diretórios do projeto e foi extraído a partir do local onde desenvolvi (C:\xampp\htdocs).
