@@ -1,0 +1,29 @@
+<!DOCTYPE html> <!-- Sempre a versão mais recente no HTML, neste caso, a 5  -->
+<html lang="pt-br" ng-app="appAngular"> <!-- carrega o módulo principal do AngularJS -->
+<head>
+        <!-- Incluídas bibliotecas para AngularJS, jQuery (exigido pelo Bootstrap) e Bootstrap
+        Tags meta para codificação de caracteres e viewport para layout mobile -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Web Developer</title>
+        <link rel="stylesheet" href="css//bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/bootstrap.js"></script>
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/controllers/CategoriaController.js"></script>
+        <script src="js/controllers/ProdutoController.js"></script>
+        <script src="js/controllers/CarrinhoController.js"></script>
+        <script src="js/directives/painelProduto.js"></script>
+        <script src="js/services/CarrinhoService.js"></script>
+</head>
+<body ng-controller="CarrinhoController">
+       <div style="padding:1.5em 1.5em;">
+               <!-- Exibir partials carregadas pelo AngularJS -->
+               <ng-view></ng-view>
+       </div>
+</body>
+</html>

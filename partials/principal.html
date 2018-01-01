@@ -1,0 +1,39 @@
+<!-- Estruturas para impressão do conteúdo principal da tela inicial -->
+<!-- Cabeçalho -->
+<div>
+	<div id="conteudo">
+		<div ng-include="'includes/header.html'"></div>
+
+		<!-- Display de ordenação e quantidade de registros -->
+		<div class="navbar-inverse">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="txt">
+						&ensp;Sort By: <span ng-bind="sortText"></span> <span class="glyphicon glyphicon-menu-down" ng-click="altSortOrder()"></span>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+					<div class="txt font-resp">Viewing <span ng-bind="tamanho"></span> of {{produto.length}} items&ensp;</div>
+				</div>
+			</div>
+		</div>
+		<h3 class="text-center" ng-bind="filtro | uppercase"></h3>
+
+		<!-- Painel de Produtos -->
+		<section>
+			<div class="row">
+				<div ng-repeat="prod in filtered = (produto| filter: filtro | orderBy : sortOrder)">
+					<painel-produto id="{{prod.id}}" url="{{prod.fotos.foto1}}" nome="{{prod.nome}}" descr="{{prod.alt}}" preco="$ {{prod.preco}}">
+					</painel-produto>
+				</div>
+				<div style="display:none;">{{tamanho = filtered.length}}</div>
+			</div>
+		</section>
+
+		<!--  Faz chamada para o totalizador: nesta página não há o recurso, mas caso o mesmo seja implantado estará aqui -->
+		<ng-include src="'includes/totalizador.html'"></ng-include>
+	</div>
+</div>
+
+<!-- Rodapé -->
+<div ng-include="'includes/footer.html'"></div>

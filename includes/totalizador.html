@@ -1,0 +1,51 @@
+<!-- Janela que mostra/oculta com totalizador do pedido -->
+<div id="resumo" class="container caixa-tot">
+	<!-- Botões para Checkout ou para seguir comprando -->
+	<p style="text-align:center;">
+		<button class="btn btn-default">
+			<span class="txt-upper" ng-click="fechaTotalizador()">< BACK</span>
+		</button>
+		<button class="btn btn-primary">
+			<span class="txt-upper">CHECKOUT ></span>
+		</button>
+	</p>
+	<!-- Dados da compra -->
+	<div class="well well-sm"><b>EST. ORDER TOTAL</b><br />{{retValorFinalPedido() | currency}}</div>
+	<div class="well well-sm">
+		<p><b>SUBTOTAL ({{retQtd()}} items)</b><br />{{retornaTotal() | currency}}</p>
+		<p><b>SHIPPING</b><br />{{retShip() | currency}}</p>
+		<small>Additional Shipping Options Available In Checkout</small>
+		<p><a href="">Estimate Tax<span class="glyphicon glyphicon-menu-right"></span></a></p>
+		<small>Fees (0,00)</small>
+	</div>
+	<p class="row">
+		<div class="col-sm-1 col-md-7 col-lg-9"><input type="text" class="form-control" placeholder="ADD COUPON CODE" /></div>
+		<div class="col-sm-1 col-md-7 col-lg-3"><button class="btn btn-secondary">ADD</button></div>
+	</p>
+	<br /><br />
+	<!-- Itera relação de itens do carrinho: permite editar/excluir na própria tela -->
+	<div ng-repeat="item in lista()">
+		<table class="table" ng-show="item.exibir">
+			<tr class="well well-sm">
+				<td><img src="{{item.url}}" alt="Item do carrinho" class="img-res" style="width:5em !important;"></td>
+				<td>
+					<small>{{item.nome | uppercase}}</small>
+					<br />
+					<small>Price: {{item.preco | currency}}</small>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon">QTY</span>
+						<input type="number" ng-model="item.qtd" class="form-control" ng-value="item.qtd" ng-blur="atualizaItemCarrinho(item, item.qtd)" />
+						<!-- Carrinho nao é atualizado na diretiva ng-change pois o usuário pode acidentalmente digitar 0 -->
+					</div>
+					<small>Total Price: {{item.preco * item.qtd | currency}}</small>
+					<br />
+					<small><a href="">Add Note</a></small>
+				</td>
+				<td style="color:#FF0000;cursor:pointer;font-weight:bold;">
+					<div ng-click="removerItemCarrinho(item)">X</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

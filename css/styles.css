@@ -1,0 +1,176 @@
+body {
+	padding-top: 30px;
+	height: 100%;
+}
+
+footer img {
+	width: 25px;
+	height: 20px;
+}
+
+img {
+	cursor: pointer;
+}
+
+.img-categ {
+	width: 100% !important;
+	height: 350px !important;
+}
+
+.zoom, .img-zoom:hover {
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+	-o-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.alignTit {
+	position: relative;
+	top:. 7em;
+}
+
+.txt {
+    font-weight: bold;
+    color: #FFF;
+}
+
+.row-det {
+	position: relative;
+	top: 4em;
+}
+
+#buscar {
+	position: relative;
+	top: .1em;
+}
+
+.img-res{
+	height: 8em !important;
+	width: 13em !important;
+}
+
+.caixa-tot {
+	border: 1px solid #F2F2F2;
+	display: none;
+	float: right;
+	box-shadow: 5px 5px 5px 5px #888888;
+	border-radius: 5px;
+	height: 38em;
+	overflow: scroll;
+	padding-top: 1em;
+	margin-bottom:0;
+}
+
+.txt-upper {
+	-webkit-text-transform: uppercase;
+	-moz-text-transform: uppercase;
+	-o-text-transform: uppercase;
+	-ms-text-transform: uppercase;
+	text-transform: uppercase;
+}
+
+.conteudo-exibe-tot {
+	width: 70%;
+	display: inline-block;
+}
+
+.totalizador-exibe-tot {
+	width: 30%;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	-o-transform: translateY(10px);
+	-ms-transform: translateY(10px);
+	transform: translateY(10px);
+	position: relative;
+}
+
+.conteudo-oculta-tot {
+	width: 100%;
+}
+
+.totalizador-oculta-tot {
+	width: 0%;
+}
+
+.logo {
+	width: 7em;
+	height: 3em;
+}
+
+@media(max-width: 760px) {
+	body {
+		font-size: 10pt !important;
+		padding-top: 30px;
+	}
+
+	h3 {
+		font-size: 10pt !important;
+	}
+
+	nav a {
+		font-size: 10pt !important;
+	}
+
+	.font-resp {
+		font-size: 8pt !important;	
+	}
+
+	.img-res{
+		height: 6em !important;
+		width: 7em !important;
+	}
+
+	.row-det {
+		position: relative !important;
+		top: 0 !important;
+	}
+
+	.conteudo-exibe-tot {
+		width: 0%;
+		display: none;
+	}
+
+	.totalizador-exibe-tot {
+		width: 100%;
+		display: inline-block;
+		position: relative;
+		padding-top: 1em;
+	}
+
+	.logo {
+		width: 4em;
+		height: 2em;
+	}
+
+	.img-categ {
+		width: 100% !important;
+		height: 150px !important;
+	}
+}
+
+@media(min-width: 1000px) {
+	.img-res{
+		height: 5em !important;
+		width: 10em !important;
+	}
+}
+
+@media(max-width: 1024px) {
+	.conteudo-exibe-tot {
+		width: 0%;
+		display: none;
+	}
+
+	body {
+		background-color: #FFF;
+	}
+
+	.totalizador-exibe-tot {
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: relative;
+		padding-top: 1em;
+	}
+}

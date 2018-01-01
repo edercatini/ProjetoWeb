@@ -1,0 +1,41 @@
+<!-- Códigos da parte inicial (fixa) da tela  -->
+<section id="principal">
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+				<img src="img/logo.jpg" class="logo" />
+			</div>
+			<div class="col-xs-5 col-sm-7 col-md-7 col-lg-7">
+				<div class="input-group">
+					<span class="input-group-addon glyphicon glyphicon-search"></span>
+					<input type="text" id="buscar" class="form-control" placeholder="Search" ng-model="filtro" ng-change="alteraFiltro(filtro, false)" ng-blur="alteraFiltro(filtro, true)">
+				</div>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<h6>LOGIN</h6>
+			</div>
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				<a><span class="glyphicon glyphicon-globe alignTit"></span></a>
+			</div>
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				<a><span class="glyphicon glyphicon-lock alignTit"></span></a>
+			</div>
+		</nav>
+	</div>
+
+	<!-- Link para seleção de Categorias Específicas -->
+	<div ng-controller="CategoriaController">
+		<div class="row">
+			<aside class="col-xs-2 col-sm-1 col-md-1 col-lg-1" ng-repeat="categ in categoria">
+				<button class="btn btn-link" ng-click="alteraImgFilt(categ)" href="#/{{categ.nome}}">{{categ.nome}}</button>
+			</aside>
+		</div>
+		<!-- Imagem que identifica a categoria -->
+		<figure class="row">
+			<div ng-if="imagem != ''" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<img src="{{imagem}}" class="img-categ" />
+			</div>
+		</figure>
+	</div>
+	</div>
+</section>

@@ -1,0 +1,69 @@
+<!-- Partial para exibição de detalhes do produto -->
+<!-- Cabeçalho -->
+<div>
+	<div id="conteudo">
+		<div ng-include="'includes/header.html'"></div>
+
+		<!-- Produtos -->
+		<section>
+			<div class="container" ng-repeat="prod in produto | filter: filtro">
+				<div class="row row-det" ng-init="foto = prod.fotos.foto1; prodinfo = prod.descricao">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<div class="jumbotron img-resp">
+							<img src="{{foto}}" class="img-responsive inline-block img-zoom {{cls}}" alt="{{prod.alt}}" />
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-1 col-md-1 col-lg-1">
+						<div class="inline-block">
+							<img src="{{prod.fotos.foto1}}" alt="Primeira foto" ng-click="foto = prod.fotos.foto1" class="img-responsive img-res" style="border:2px solid #ccc;"/>
+							<img src="{{prod.fotos.foto2}}" alt="Segunda foto" ng-click="foto = prod.fotos.foto2" class="img-responsive img-res" style="margin-top:2em;border:2px solid #ccc;" />
+						</div>
+						<div class="text-center">
+							<button type="button" class="btn btn-default" style="position:relative;top:2em;" ng-click="cls = 'zoom'">
+								<span class="glyphicon glyphicon-zoom-in"></span>
+							</button>
+						</div>
+					</div>
+					<div class="col-xs-5 col-sm-7 col-md-7 col-lg-4 text-center">
+						<h4>{{prod.nome | uppercase}}</h4>
+						<h5>{{prod.preco | currency}}</h5>
+						<div class="input-group">
+							<span class="input-group-addon">QTY</span>
+							<input type="number" id="qty" name="qty" ng-model="qtd" class="form-control" />
+						</div>
+						<span ng-if="qtd < 1">
+							<p><div class="alert-danger">Necessário informar quantidade maior que zero</div></p>
+						</span>
+						<div style="position:relative;top:.5em;">
+							<p>
+								<button class="form-control btn btn-primary" ng-disabled="qtd < 1" ng-click="adicionarAoCarrinho(prod, qtd)">
+									Add to cart
+								</button>
+							</p>
+							<p><a href="">Shipping Rates</a></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-1 col-md-5 col-lg-9" style="position:relative;top:5em;">
+			  			<div class="container">
+			      			<div class="nav navbar-nav">
+		        				<span><a class="btn btn-default" href="" ng-click="prodinfo = prod.descricao">Descrição</a></span>
+		        				<span><a class="btn btn-default" href="" ng-click="prodinfo = prod.detalhe">Detalhes</a></span>
+		        			</div>
+						</div>
+					</div>
+					<div class="col-sm-1 col-md-5 col-lg-9" style="position:relative;top:5em;">
+						<div class="jumbotron">
+							<span ng-bind="prodinfo" class="container"></span>
+				    	</div>
+			    	</div>
+		    	</div>
+		</section>
+	</div>
+	<ng-include src="'includes/totalizador.html'"></ng-include>
+</div>
+
+<!-- Rodapé -->
+<div ng-include="'includes/footer.html'"></div>
